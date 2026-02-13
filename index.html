@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+
+    height: 100vh;
+    min-height: 100dvh; /* important for mobile */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden; /* stops scrolling */
+}
+
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 100%;
+}
+
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    max-width: 500px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: white;
+    color: #ff4b5c;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b5c;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s infinite ease-in;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart:before { top: -10px; left: 0; }
+.heart:after { left: -10px; top: 0; }
+
+@keyframes float {
+    0% { bottom: -10%; opacity: 1; }
+    100% { bottom: 100%; opacity: 0; }
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+    opacity: 0.8;
+}
+/* ============================= */
+/* 📱 Mobile Responsive Section */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+@media (max-width: 768px) {
+
+    html, body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        width: 90%;
+        max-width: 280px;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Page 1 -->
+<div id="page1">
+    <h1>🚨 Breaking News 🚨</h1>
+    <p>Boys are creating special apps to propose their girlfriends this Valentine’s Day...</p>
+
+    <button id="btn1" onclick="nextButton(1)">Click To See My Surprise 💌</button>
+    <button id="btn2" class="hidden" onclick="nextButton(2)">See What I Made For You 💖</button>
+    <button id="btn3" class="hidden" onclick="nextButton(3)">Are You Ready? 😳</button>
+    <button id="btn4" class="hidden" onclick="nextPage(2)">Made With Love – Just For You 💘</button>
+</div>
+
+<!-- Page 2 -->
+<div id="page2" class="hidden">
+    <h1>Will You Be Mine Forever? 💖</h1>
+    <p>You can't say no 😜<br>Because this app is made with love!</p>
+    <button onclick="nextPage(3)"> Yes !😳</button>
+</div>
+
+<!-- Page 3 -->
+<div id="page3" class="hidden">
+    <h1>Relax 😌</h1>
+    <p>
+        This is NOT a proposal! 😂<br><br>
+        This app is specially made for my amazing single queen 👑<br><br>
+        Happy Valentine’s Day 💝
+    </p>
+    <button onclick="nextPage(4)">One More Thing 💖</button>
+</div>
+
+<!-- Page 4 -->
+<div id="page4" class="hidden">
+    <h1>From Anjana 💖</h1>
+    <p>
+        To my beautiful, strong, and wonderful friend 🌸<br><br>
+        Thank you for being such an amazing part of my life.<br>
+        Single but shining always ✨👑<br><br>
+        With love,<br>
+        <strong>Anjana</strong>
+    </p>
+
+   <button onclick="nextPage(5)">There’s Something I Want To Tell You 💖</button>
+</div>
+
+<!-- Page 5 -->
+<div id="page5" class="hidden">
+    <h1>Just For You ✨💖</h1>
+    <p>
+        I truly hope that next Valentine’s Day 💕<br>
+        you celebrate it with your perfect boyfriend<br>
+        and your soulmate by your side ✨💞<br><br>
+        Because you deserve the purest and most beautiful love 🌹👑<br><br>
+        Always stay happy and loved 💖
+    </p>
+</div>
+
+</div>
+
+<div class="footer">
+    Made with ❤️ by Anjana
+</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+    <source src="juliush-amore-italiano-love-song-italian-style-3350.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let musicStarted = false;
+
+function nextButton(step) {
+
+    // Start music on first interaction
+    if (!musicStarted) {
+        const music = document.getElementById("bgMusic");
+        music.volume = 0.3;   // Soft volume
+        music.play();
+        musicStarted = true;
+    }
+
+    if (step === 1) {
+        btn1.classList.add("hidden");
+        btn2.classList.remove("hidden");
+    } 
+    else if (step === 2) {
+        btn2.classList.add("hidden");
+        btn3.classList.remove("hidden");
+    } 
+    else if (step === 3) {
+        btn3.classList.add("hidden");
+        btn4.classList.remove("hidden");
+    }
+}
+
+function nextPage(pageNumber) {
+    for (let i = 1; i <= 5; i++) {
+        let page = document.getElementById("page" + i);
+        if (page) page.classList.add("hidden");
+    }
+    document.getElementById("page" + pageNumber).classList.remove("hidden");
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
